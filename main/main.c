@@ -100,10 +100,10 @@ void app_main(void) {
   printf("MQTT broker started on %s\n", MG_LISTEN_ADDR);
 
   // print the local IP address
-	tcpip_adapter_ip_info_t ip_info;
-	ESP_ERROR_CHECK(tcpip_adapter_get_ip_info(TCPIP_ADAPTER_IF_STA, &ip_info));
-	printf("IP Address:  %s\n", ip4addr_ntoa(&ip_info.ip));
-	printf("Subnet mask: %s\n", ip4addr_ntoa(&ip_info.netmask));
+  tcpip_adapter_ip_info_t ip_info;
+  ESP_ERROR_CHECK(tcpip_adapter_get_ip_info(TCPIP_ADAPTER_IF_STA, &ip_info));
+  printf("IP Address:  %s\n", ip4addr_ntoa(&ip_info.ip));
+  printf("Subnet mask: %s\n", ip4addr_ntoa(&ip_info.netmask));
   printf("Gateway:     %s\n", ip4addr_ntoa(&ip_info.gw));
 
   /* Processing events */
