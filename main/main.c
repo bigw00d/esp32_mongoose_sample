@@ -59,7 +59,7 @@ void app_main(void) {
 
   tcpip_adapter_dhcpc_stop(TCPIP_ADAPTER_IF_STA);
 
-  /* IPアドレスの設定 */
+  /* Set IP Address */
   tcpip_adapter_ip_info_t ipInfo;
   IP4_ADDR(&ipInfo.ip, 192,168,99,99);
   IP4_ADDR(&ipInfo.gw, 192,168,99,1);
@@ -92,14 +92,13 @@ void app_main(void) {
     return;
   }
 
-  // mg_set_protocol_http_websocket(nc);
   mg_mqtt_broker_init(&brk, NULL);
   nc->priv_2 = &brk;
   mg_set_protocol_mqtt(nc);
 
   printf("MQTT broker started on %s\n", MG_LISTEN_ADDR);
 
-  // print the local IP address
+  /* Print the local IP address */
   tcpip_adapter_ip_info_t ip_info;
   ESP_ERROR_CHECK(tcpip_adapter_get_ip_info(TCPIP_ADAPTER_IF_STA, &ip_info));
   printf("IP Address:  %s\n", ip4addr_ntoa(&ip_info.ip));
