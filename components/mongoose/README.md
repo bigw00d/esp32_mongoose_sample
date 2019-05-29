@@ -1,0 +1,1 @@
+A.I.ここにmongooseを入れる（git submoduleする）
